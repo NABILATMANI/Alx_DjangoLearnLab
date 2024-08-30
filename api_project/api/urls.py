@@ -16,3 +16,9 @@ urlpatterns = [
     # For Task 3: Token Authentication
     path('api-token-auth/', include('rest_framework.authtoken.urls')),
 ]
+from django.urls import path
+from .views import BookList
+
+urlpatterns = [
+    path('books/', BookList.as_view(), name='book-list'),
+]
