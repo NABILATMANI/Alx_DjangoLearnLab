@@ -19,3 +19,10 @@ def book_list(request):
     data = {"books": list(books.values("title", "author"))}
     return JsonResponse(data)
 >>>>>>> origin/main
+from rest_framework.generics import ListAPIView
+from .models import Book  # Assuming you have a Book model
+from .serializers import BookSerializer
+
+class BookList(ListAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
