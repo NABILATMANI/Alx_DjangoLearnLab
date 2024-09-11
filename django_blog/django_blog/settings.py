@@ -79,3 +79,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'blog/static')]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_db_name',      # Replace with your database name
+        'USER': 'your_db_user',      # Replace with your database user
+        'PASSWORD': 'your_db_password',  # Replace with your database password
+        'HOST': 'localhost',         # Set to your database host
+        'PORT': '5432',              # Default PostgreSQL port
+    }
+}
