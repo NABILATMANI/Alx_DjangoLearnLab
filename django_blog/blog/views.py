@@ -136,6 +136,20 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'posts/post_detail.html'
+   from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Post
+from .forms import PostForm
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'posts/post_list.html'
+    context_object_name = 'posts'
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'posts/post_detail.html'
     context_object_name = 'post'
 
 class PostCreateView(LoginRequiredMixin, CreateView):
